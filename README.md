@@ -1,4 +1,4 @@
-#ETL National Health Data
+# ETL National Health Data
 
 For our project we are using data from the CDC - National Health and Examination Health Survey (2013-2014). We started by exploring the data and determining which of the 6 data sets we wanted to use. We selected the demographic data set and examination data set. 
 
@@ -12,14 +12,14 @@ Establish a database schema using [quickdatabasediagrams.com](https://www.quickd
 
 The data was exported to predefine the database in PostgresSQL see [CodeTableQBD](CodeTableQDB.txt)
 
-# EXTRACT: 
+# Extract
 
 The CSV files were downloaded. Original copies are located in the Resources folder.
 1. demographic.csv - [source kaggle.com](https://www.kaggle.com/cdc/national-health-and-nutrition-examination-survey?select=demographic.csv)
 2. examination.csv - [source kaggle.com](https://www.kaggle.com/cdc/national-health-and-nutrition-examination-survey?select=examination.csv)
 
 
-# TRANSFORM:
+# Transform
 
 - Filter data to narrow down focus (ex. Xray results and oral health). The data set had over 200 columns, these were narrowed down to a more manageable number. This filtering was done in Excel. [demographic_modified.csv](Resources/demographic_modified.csv), [examination_modified.csv](Resources/examination.csv)
 - The CSV files were formated where many columns had a code, with a seperate reference table, instead of actual values listed in each row. Some of these values (gender, family size & if pregnant) were replaced using the find/replace function in Excel. The rest will have reference tables that will be added to our final data set as seperate tables. These reference tables will be added to our final data base.  
@@ -30,7 +30,7 @@ The CSV files were downloaded. Original copies are located in the Resources fold
 
 
 
-# LOAD: 
+# Load 
 - Insert records into unique columns of health_study table, excluding records containing any null values
 - Verify the health_study table is accurate using Excel to check the number of rows and a select query to check for null values
 - Drop Demographics and Examination tables
